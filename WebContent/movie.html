@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Author Kalkidan Teklu -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    <!-- Display actor specific search fields and hide unnessary/duplicate fields -->
+    function displayActorFields(){
+        document.getElementById('first_Last_Name').style.display ='';
+        document.getElementById('title').style.display ='none';
+        document.getElementById('actor_fields').style.display ='';
+        
+    }
+    <!-- Display director specific search fields and hide unnessary/duplicate fields -->
+    function displayDirectorFields(){
+        document.getElementById('first_Last_Name').style.display ='';
+        document.getElementById('title').style.display ='none';
+        document.getElementById('actor_fields').style.display ='none';
+        
+    }
+    <!-- Display movie specific search fields and hide unnessary/duplicate fields -->
+    function displayMovieFields(){
+        document.getElementById('first_Last_Name').style.display ='none';
+        document.getElementById('title').style.display ='';
+        document.getElementById('actor_fields').style.display ='none';
+        
+    }
+    </script>
+</head>
+<body>
+	<form method="post">
+		<div class="label">
+			<h3>Search:</h3>
+		</div>
+		<input type="radio" name="searchBy" checked="checked" value="actor"
+			onchange="javascript:displayActorFields();" /> Actors <br> <input
+			type="radio" name="searchBy" value="director"
+			onchange="javascript:displayDirectorFields();" /> Directors <br>
+		<input type="radio" name="searchBy"
+			onchange="javascript:displayMovieFields();" value="movie" /> Movies
+		<br>
+		<div id="first_Last_Name">
+			<div>
+				<h3>Actor/Director Name</h3>
+			</div>
+			<div>
+				First Name: <input name="firstname" size="40"> &nbsp Last
+				Name: <input name="lastname" size="40"><br>
+			</div>
+		</div>
+		<div id="actor_fields">
+			<input type="radio" name="gender" checked="checked" value="M" />
+			Male <br> <input type="radio" name="gender" value="F" />
+			Female <br> Number of films acted in: <input type="text"
+				name="numberofmovies" />
+		</div>
+		<div id="title" style="display: none;">
+			<div>
+				<h3>Title</h3>
+			</div>
+			<div>
+				<input name="title" size="40"><br>
+				<div>
+					<h3>Year</h3>
+				</div>
+				<input type="text" name="year" />
+			</div>
+		</div>
+		
+		<button type="submit" formaction="/kalkidan_teklu_imdb/search">Search</button>
+	</form>
+</body>
+</html>
